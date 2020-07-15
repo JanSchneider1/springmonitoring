@@ -1,0 +1,23 @@
+# Application info
+info.app.version: 1.0.0
+
+management.server.port: 8181
+management.endpoint.health.show-components: always
+management.endpoint.health.show-details: always
+
+# Configure endpoints
+management.endpoint.shutdown.enabled: true
+
+# Configure web endpoint exposure
+management.endpoints.web.base-path: "/monitoring"
+management.endpoints.web.path-mapping.shutdown: "/kill"
+management.endpoints.web.exposure.include: "shutdown, info, health, cats, prometheus, metrics, logfile"
+
+# Database
+spring.h2.console.enabled: true
+spring.jpa.hibernate.ddl-auto: create-drop
+spring.datasource:
+  url: "jdbc:h2:./db/cats"
+  driverClassName: org.h2.Driver
+  username: sa
+  password:
