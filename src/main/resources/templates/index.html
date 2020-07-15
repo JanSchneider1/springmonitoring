@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cat-Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
 </head>
 <body>
-Moin moin
+<blockquote>
+    This is a demo for building and monitoring a spring boot application.
+    Below you can store and see your cats in the data base.
+</blockquote>
+<details>
+    <summary>Add a cat to H2-Database</summary>
+    <br/>
+    <form action="#" th:action="@{/}" th:object="${cat}" method="post">
+        <fieldset>
+            <legend>Your Cat</legend>
+            <label for="name">Name</label>
+            <input th:field="*{name}" type="text" id="name" placeholder="Miauz"/>
+            <label for="fur-color">Fur-Color</label>
+            <input th:field="*{furColor}" type="text" id="fur-color" placeholder="Gray"/>
+            <label for="favorite-food">Favorite-Food</label>
+            <input th:field="*{favoriteFood}" type="text" id="favorite-food" placeholder="Cat-Food"/>
+            <input type="submit"/>
+        </fieldset>
+    </form>
+</details>
+<br/>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Fur Color</th>
+        <th>Favourite Food</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cat : ${cats}">
+        <td><span th:text="${cat.name}"></span></td>
+        <td><span th:text="${cat.furColor}"></span></td>
+        <td><span th:text="${cat.favoriteFood}"></span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

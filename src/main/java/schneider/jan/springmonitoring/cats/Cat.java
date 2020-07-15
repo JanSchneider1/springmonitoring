@@ -2,6 +2,7 @@ package schneider.jan.springmonitoring.cats;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -9,16 +10,14 @@ import java.io.Serializable;
 public class Cat implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long catID;
 
     private String name;
     private String furColor;
     private String favoriteFood;
 
-    public Cat() {
-
-    }
+    public Cat() { }
 
     public Cat(String name, String furColor, String favoriteFood) {
         this.name = name;
