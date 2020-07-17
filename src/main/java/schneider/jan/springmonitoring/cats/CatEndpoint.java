@@ -1,4 +1,4 @@
-package schneider.jan.springmonitoring.endpoints;
+package schneider.jan.springmonitoring.cats;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
